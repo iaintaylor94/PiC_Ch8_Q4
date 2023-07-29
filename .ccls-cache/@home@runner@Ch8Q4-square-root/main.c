@@ -1,4 +1,5 @@
 // Function to calculate the Square root of a number
+// The closer the initial guess is to the answer, the less iterations required to get within epsilon of the answer
 
 #include <stdio.h>
 
@@ -29,8 +30,11 @@ float squareRoot (float x) {
   const float epsilon = .00001;
   float guess = 1;
 
-  while (absoluteValue (guess * guess - x) >= epsilon) 
+  printf ("\n");
+  while (absoluteValue (guess * guess - x) >= epsilon) {
     guess = (x / guess + guess) / 2.0;
+    printf ("Guess is:  %f\n", guess);
+  }
 
   return guess;
 }
